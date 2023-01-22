@@ -22,7 +22,7 @@ Node* floor( Node* root, int x )
     while( root != NULL )
     {
         if( root->key == x )
-            res=
+            res=root->key;
     }
 }
 
