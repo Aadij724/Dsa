@@ -16,26 +16,17 @@ class Node
     }
 };
 
+void inorderTraversal( Node* root )
+{
+    if( root!=NULL )
+    {
+        inorderTraversal( root->left );
+        cout<< root->key<<" ";
+        inorderTraversal( root->right );
+    }
+}
 
 Node *prev=NULL, *first=NULL, *second=NULL;
-
-// Checking is Tree a BST 
-
-bool isBST( Node* root, int min, int max )
-{
-    if( root == NULL ) return true;
-    
-    return( root->key > min && root->key < max &&
-            isBST( root->left, min, root->key ) && isBST( root->right, root->key, max ) ); 
-}
-
-bool isBSTf( Node* root )
-{
-    return ( isBST( root, INT8_MIN, INT8_MAX) );
-}
-
-
-
 
 // Fixing the BST
 
@@ -75,11 +66,12 @@ int main()
     root->right->left=new Node(8);
     root->right->right=new Node(100);
 
-    cout<<"tree is BST : ";
-    cout<<isBSTf(root);
-
-    cout<<"\n\nFixing the BST : ";
+    cout<<"Inorder Traversal : ";
+    inorderTraversal( root );
     
-    cout<<"tree is BST : ";
-    cout<< isBSTf(root);
+    cout<<"\n\nFixing the BST...";
+    fixBSTf( root );
+
+    cout<<"\n\nInorder Traversal : ";
+    inorderTraversal( root );
 }
