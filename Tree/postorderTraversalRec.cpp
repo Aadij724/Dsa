@@ -40,5 +40,16 @@ int main()
 
     cout<<"Postorder Traversal : ";
     postorderTraversalRec(head);
+
+    Node* head2=new Node(1);
+    head2->left=new Node(2);
+    head2->right=new Node(2);
+    head2->left->left=new Node(3);
+    head2->left->right=new Node(4);
+    head2->right->left=new Node(4);
+    head2->right->right=new Node(3);
+
+    cout<<"\n\nPostorder Traversal : ";
+    postorderTraversalRec(head2);
     
 }
