@@ -85,4 +85,21 @@ int main()
 
     cout<<"\n\nInorder Traversal : ";
     inorderTra( root );
+
+    
+    Node* root2=new Node(50);
+    root2->left=new Node(30);
+    root2->right=new Node(70);
+    root2->left->right=new Node(40);
+    root2->right->left=new Node(60);
+    root2->right->right=new Node(80);
+
+    cout<<"\n\n\nInorder Traversal : ";
+    inorderTra( root2 );
+
+    cout<<"\n\nDeleting Node 70";
+    root = delNode( root2 , 70);
+
+    cout<<"\n\nInorder Traversal : ";
+    inorderTra( root2 );
 }

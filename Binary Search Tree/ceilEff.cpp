@@ -22,7 +22,10 @@ Node* ceil( Node* root, int x )
     while( root != NULL )
     {
         if( root->key == x )
+        {
             res = root;
+            return res;
+        }
         
         else if( root->key < x )
             root = root->right;
@@ -49,12 +52,13 @@ int main()
     root->right->left->right=new Node(65);
 
     cout<<"Ceil value of 70 : ";
-    cout<< ceil( root, 70)->key ;
+    cout<< (ceil( root, 70))->key ;
 
     cout<<"\n\nCeil value of 63 : ";
-    cout<< ceil( root, 63)->key ;
+    cout<< (ceil( root, 63))->key ;
     
     cout<<"\n\nCeil value of 15 : ";
-    cout<< ceil( root, 15)->key ;
+    cout<< (ceil( root, 15))->key ;
+    
     
 }
