@@ -18,9 +18,29 @@ class Node
 
 Node* insertIterative( Node* root , int x )
 {
-    
-}
+    Node* temp = new Node(x);
+    Node* parent = NULL;
+    Node* curr = root;
 
+    while( curr!=NULL )
+    {
+        parent=curr;
+        if( curr->key > x )
+            curr=curr->left;
+        else if( curr->key < x )
+            curr = curr->right;
+        else
+            return root;
+    }
+
+    if( parent==NULL )
+        return temp;
+    if( parent->key > x )
+        parent->left = temp;
+    else
+        parent->right = temp;
+    return root;
+}
 
 
 void inorderTraversalRec(Node* head)
@@ -44,7 +64,7 @@ int main()
     cout<<"Inorder Traversal ( Before Insert ) : ";
     inorderTraversalRec( root );
 
-    cout<<"\n\nInsertion of 20 in BST : ";
+    cout<<"\n\nInsertion of 20 in BST...";
     root=insertIterative( root, 20 );
 
     cout<<"\n\nInorder Traversal ( After Insert ) : ";
