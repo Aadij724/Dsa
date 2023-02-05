@@ -26,34 +26,35 @@ void inorderTraversal( Node* root )
     }
 }
 
-Node *prev=NULL, *first=NULL, *second=NULL;
 
 // Fixing the BST
+Node *prev1=NULL, *first1=NULL, *second1=NULL;
+
 
 void fixBST( Node* root )
 {
     if( root == NULL ) return;
     fixBST( root->left);
-    if( prev!=NULL && root->key < prev->key )
+    if( prev1!=NULL && root->key < prev1->key )
     {
-        if( first == NULL )
-            first=prev;
-        second=root;
+        if( first1 == NULL )
+            first1=prev1;
+        second1=root;
     }
-    prev = root;
+    prev1 = root;
     fixBST( root->right );
 }
 
 void fixBSTf( Node* root )
 {
     fixBST( root );
-    if( first == NULL )
+    if( first1 == NULL )
         return;
     
     int temp;
-    temp=first->key;
-    first->key=second->key;
-    second->key=temp;
+    temp=first1->key;
+    first1->key=second1->key;
+    second1->key=temp;
 }
 
 
@@ -61,6 +62,7 @@ int main()
 {
     Node* root=new Node(20);
     root->left=new Node(60);
+    root->right=new Node(80);
     root->left->left=new Node(4);
     root->left->right=new Node(10);
     root->right->left=new Node(8);
